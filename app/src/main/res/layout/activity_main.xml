@@ -9,6 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -17,7 +18,7 @@
         android:text="Calculadora IMC" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textPeso"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Peso (kg)" />
@@ -32,7 +33,7 @@
         android:text="X kg" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textAltura"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="0.1"

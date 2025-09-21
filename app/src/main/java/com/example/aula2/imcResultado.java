@@ -8,41 +8,61 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
-import org.w3c.dom.Text;
 
 public class imcResultado extends AppCompatActivity {
 
-    Button b;
-    TextView tvResultado;
-    ImageView imageView;
+    Button button;
+    TextView textResultado, textPeso, textAltura, textTipo;
+    ImageView imageViewTipo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.imcresultado);
+        setContentView(R.layout.activity_resultado);
 
-        tvResultado=findViewById(R.id.tvResultado);
-        imageView=findViewById(R.id.imageView);
+        textResultado = findViewById(R.id.textResultado);
+        textPeso = findViewById(R.id.textResultadoPeso);
+        textAltura = findViewById(R.id.textResultadoAltura);
+        textTipo = findViewById(R.id.textTipo);
+        imageViewTipo =findViewById(R.id.imageViewTipo);
 
-        Intent intent = getIntent();
-        Bundle b = intent.getExtras();
+        Intent i = getIntent();
+        Bundle b = i.getExtras();
 
         double peso = b.getDouble("peso");
         double altura = b.getDouble("altura");
 
         double imc = peso/(altura*altura);
 
-        tvResultado.setText(Double.toString(imc));
-        imageView.setImageResource(R.drawable.perfil);
+        textPeso.setText("Peso: " + String.format("%.2f", peso) + " Kg");
+        textAltura.setText("Altura: " + String.format("%.2f", altura) + " m");
+        String resultado = "IMC: " + String.format("%.2f", imc);
+        textResultado.setText(resultado);
 
-        if(imc<18.9){imageView.setImageResource(R.drawable.abaixopeso)};
-        if(imc=18.9 && imc<25){imageView.setImageResource(R.drawable.normal)};
-        if(imc>=25 && imc <30){imageView.setImageResource(R.drawable.obesidade1)};
-        if(imc>=30 && imc <35){imageView.setImageResource(R.drawable.obesidade2)};
+        if(imc < 18.5){
+            imageViewTipo.setImageDrawable(getDrawable(R.drawable.abaixopeso));
+            textTipo.setText("Abaixo do peso");
+        }
+        else if(imc >= 18.5 && imc <= 24.9){
+            imageViewTipo.setImageDrawable(getDrawable(R.drawable.normal));
+            textTipo.setText("Normal");
+        }
+        else if(imc >= 25 && imc <= 29.9){
+            imageViewTipo.setImageDrawable(getDrawable(R.drawable.sobrepeso));
+            textTipo.setText("Sobrepeso");
+        }
+        else if(imc >= 30 && imc <= 34.9){
+            imageViewTipo.setImageDrawable(getDrawable(R.drawable.obesidade1));
+            textTipo.setText("Obesidade 1");
+        }
+        else if(imc >= 35 && imc <= 39.9){
+            imageViewTipo.setImageDrawable(getDrawable(R.drawable.obesidade2));
+            textTipo.setText("Obesidade 2");
+        }
+        else if(imc >= 40){
+            imageViewTipo.setImageDrawable(getDrawable(R.drawable.obesidade3));
+            textTipo.setText("Obesidade 3");
+        }
     }
 }
