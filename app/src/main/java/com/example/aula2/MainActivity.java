@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,8 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     Button button;
-    EditText edPeso, edAltura;
-    ImageView imageView;
+    TextView tv;
+    EditText tvNumero;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,18 +26,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         button = findViewById(R.id.button);
-        edPeso = findViewById(R.id.edPeso);
-        edAltura = findViewById(R.id.edAltura);
-        imageView = findViewById(R.id.imageView);
-        imageView.setImageDrawable(getDrawable(R.drawable.perfil));
+        tv = findViewById(R.id.tv);
+        tvNumero = findViewById(R.id.tvNumero);
 
         button.setOnClickListener( v -> {
-            Intent intent = new Intent(this, imcResultado.class);
+            Intent intent = new Intent(this, Resultado.class);
             Bundle b = new Bundle();
-            double peso = Double.parseDouble(edPeso.getText().toString());
-            double altura = Double.parseDouble(edAltura.getText().toString());
-            b.putDouble("peso", peso);
-            b.putDouble("altura", altura);
+            double numero = Double.parseDouble(tvNumero.getText().toString());
+            b.putDouble("numero", numero);
             intent.putExtras(b);
             startActivity(intent);
         });
