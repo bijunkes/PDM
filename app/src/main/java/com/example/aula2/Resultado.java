@@ -23,6 +23,15 @@ public class Resultado extends AppCompatActivity {
 
         double numero = b.getDouble("numero");
 
-        tvResultado.setText("1 x " + numero + " = " + numero * 1 + "\n2 x " + numero + " = " + numero * 2 + "\n3 x " + numero + " = " + numero * 3 + "\n4 x " + numero + " = " + numero * 4 + "\n5 x " + numero + " = " + numero * 5 + "\n6 x " + numero + " = " + numero * 6 + "\n7 x " + numero + " = " + numero * 7 + "\n8 x " + numero + " = " + numero * 8 + "\n9 x " + numero + " = " + numero * 9 + "\n10 x " + numero + " = " + numero * 10);
+        tvResultado.setText("1 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 1)
+                + "\n2 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 2)
+                + "\n3 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 3)
+                + "\n4 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 4)
+                + "\n5 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 5)
+                + "\n6 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 6)
+                + "\n7 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 7)
+                + "\n8 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 8)
+                + "\n9 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 9)
+                + "\n10 x " + String.format("%.0f", numero) + " = " + String.format("%.0f", numero * 10));
     }
 }
