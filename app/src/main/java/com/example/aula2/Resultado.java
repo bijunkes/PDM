@@ -8,22 +8,21 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Resultado extends AppCompatActivity {
-    TextView tv, tvResultado;
+    TextView tvResultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.resultado);
+        setContentView(R.layout.activity_resultado);
 
-        tv = findViewById(R.id.tv);
-        tvResultado = findViewById(R.id.tvResultado);
+        tvResultado = findViewById(R.id.tvNumero);
 
         Intent i = getIntent();
         Bundle b = i.getExtras();
 
         double numero = b.getDouble("numero");
 
-        tvResultado.setText(numero + " x 1: " + numero * 1 + numero + " x 2: " + numero * 2 + numero + " x 3: " + numero * 3);
+        tvResultado.setText("1 x " + numero + " = " + numero * 1 + "\n2 x " + numero + " = " + numero * 2 + "\n3 x " + numero + " = " + numero * 3 + "\n4 x " + numero + " = " + numero * 4 + "\n5 x " + numero + " = " + numero * 5 + "\n6 x " + numero + " = " + numero * 6 + "\n7 x " + numero + " = " + numero * 7 + "\n8 x " + numero + " = " + numero * 8 + "\n9 x " + numero + " = " + numero * 9 + "\n10 x " + numero + " = " + numero * 10);
     }
 }
